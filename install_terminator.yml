@@ -4,6 +4,6 @@
   become: true
   tasks:
     - name: Install Terminator
-      package:
+      dnf:
         name: terminator
         state: present

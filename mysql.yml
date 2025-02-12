@@ -1,0 +1,18 @@
+---
+- name: Check if MySQL is running
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Gather facts about services
+      service_facts:
+
+    - name: Check if MySQL is running
+      debug:
+        msg: "MySQL is running"
+      when: "'mysql' in ansible_facts.services and ansible_facts.services['mysql'].state == 'started'"
+
+    - name: Check if MySQL is not running
+      debug:
+        msg: "MySQL is not running"
+      when: "'mysql' not in ansible_facts.services or ansible_facts.services['mysql'].state != 'started'"

@@ -1,0 +1,10 @@
+---
+- name: Remove Terminator package
+  hosts: all
+  become: yes
+  tasks:
+    - name: Remove Terminator
+      package:
+        name: terminator
+        state: absent
+

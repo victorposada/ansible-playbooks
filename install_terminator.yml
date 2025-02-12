@@ -1,0 +1,9 @@
+---
+- name: Install Terminator package
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Terminator
+      package:
+        name: terminator
+        state: present

@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: Get hostname
+      ansible.builtin.hostname:
+      register: hostname
+
+    - name: Get uptime
+      ansible.builtin.command:
+        cmd: uptime
+      register: uptime
+      changed_when: False
+
+    - name: Show hostname and uptime
+      ansible.builtin.debug:
+        msg:
+          - "Hostname: {{ hostname.stdout }}"
+          - "Uptime: {{ uptime.stdout }}"

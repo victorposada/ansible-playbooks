@@ -1,5 +1,6 @@
 ---
-- hosts:all
+- name: Get os release
+  hosts: all
   tasks:
     - name: Ge os release
       command: cat /etc/os-release

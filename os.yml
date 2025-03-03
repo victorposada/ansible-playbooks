@@ -1,0 +1,11 @@
+---
+- hosts:all
+  tasks:
+    - name: Ge os release
+      command: cat /etc/os-release
+      register: os
+    
+    - name: Print
+      debug:
+        msg:
+          - "OS: {{ os.stdout}}"

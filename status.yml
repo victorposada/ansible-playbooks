@@ -2,9 +2,6 @@
 - hosts: all
   name: Host status
   tasks:
-    - name: Get hostname
-      ansible.builtin.hostname:
-      register: hostname
 
     - name: Get uptime
       ansible.builtin.command:
@@ -15,5 +12,4 @@
     - name: Show hostname and uptime
       ansible.builtin.debug:
         msg:
-          - "Hostname: {{ hostname.stdout }}"
           - "Uptime: {{ uptime.stdout }}"

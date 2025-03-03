@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  name: Host status
   tasks:
     - name: Get hostname
       ansible.builtin.hostname:

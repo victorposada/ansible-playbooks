@@ -4,8 +4,7 @@
   tasks:
 
     - name: Get uptime
-      ansible.builtin.command:
-        cmd: uptime
+      command: uptime
       register: uptime
       changed_when: False
 

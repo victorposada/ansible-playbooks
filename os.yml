@@ -2,11 +2,14 @@
 - name: Get os release
   hosts: all
   tasks:
-    - name: Ge os release
+    - name: Get os release
       command: cat /etc/os-release
       register: os
-    
-    - name: Print
+
+    - name: Print OS release
       debug:
-        msg:
-          - "OS: {{ os.stdout}}"
+        msg: "OS: {{ os.stdout }}"
+
+    - name: Set fact for OS
+      set_fact:
+        os_release: "{{ os.stdout }}"
